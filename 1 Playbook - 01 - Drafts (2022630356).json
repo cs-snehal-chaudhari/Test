@@ -1,0 +1,122 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@context": "/api/3/contexts/WorkflowCollection",
+      "@type": "WorkflowCollection",
+      "name": "01 - Drafts",
+      "description": null,
+      "visible": true,
+      "image": null,
+      "id": 10,
+      "createDate": 1656567251.724736,
+      "modifyDate": 1656567251.724736,
+      "deletedAt": null,
+      "importedBy": [
+        {
+          "apiName": "sOARFramework",
+          "name": "SOAR Framework",
+          "version": "1.1.0"
+        }
+      ],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Tenant-Create Tasks",
+          "aliasName": null,
+          "tag": null,
+          "description": "Create Tasks For Tenant",
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": true,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1656584687,
+          "collection": "/api/3/workflow_collections/4dc865c8-012e-4326-8be5-252b723ea734",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/b9b1f289-a131-4fe5-a3f5-c5def47322c1",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "7d3a7321-26ad-4c73-91ca-bd7b052efe0a",
+                "title": "Create Tasks",
+                "resources": [
+                  "tasks"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "b9b1f289-a131-4fe5-a3f5-c5def47322c1"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Task for Tenant",
+              "description": null,
+              "arguments": {
+                "resource": {
+                  "name": "Task for Tenant",
+                  "type": "{{vars.input.params.taskPriority.itemValue}}",
+                  "tasktype": "{{vars.input.params.taskType.itemValue}}",
+                  "__replace": ""
+                },
+                "operation": "Overwrite",
+                "collection": "/api/3/tasks",
+                "__recommend": [],
+                "fieldOperation": {
+                  "recordTags": "Overwrite"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "260",
+              "left": "260",
+              "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
+              "group": null,
+              "uuid": "923d2fb0-101e-421f-8fce-52e7c24b3319"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Create Task for Tenant",
+              "targetStep": "/api/3/workflow_steps/923d2fb0-101e-421f-8fce-52e7c24b3319",
+              "sourceStep": "/api/3/workflow_steps/b9b1f289-a131-4fe5-a3f5-c5def47322c1",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "83796ac0-81e8-4c35-81fe-2c95264dca33"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "61ef4b15-5005-4c26-87b5-c3bfd3d9c17b",
+          "id": 522,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        }
+      ]
+    }
+  ],
+  "exported_tags": []
+}
